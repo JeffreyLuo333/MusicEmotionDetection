@@ -24,16 +24,18 @@ Spectrogram representation
 ### 3.2 Mid-level features
 <img src="images/Spectogram2Mid.png" width="750" height="250">
 
-Perceptual mid-level features as defined in [A datadriven approach to mid-level perceptual musical feature modeling](https://arxiv.org/pdf/1806.04903.pdf) by Anna Aljanaki and Mohammad Soleymani, along with questions that were provided to human raters to help them interpret the concepts. (The ratings were collected in a pairwise comparison scenario.)
+Perceptual mid-level features is defined in [A datadriven approach to mid-level perceptual musical feature modeling](https://arxiv.org/pdf/1806.04903.pdf) by A. Aljanaki et al., along with questions that were provided to human raters to help them interpret the concepts. (The ratings were collected in a pairwise comparison scenario.)
 
 <img src="images/Mid.png" width="550" height="250">
 
 ### 3.2 VGG-style neural network
+VGGNet is invented by Visual Geometry Group (by Oxford University). This architecture is the 1st runner up of ILSVR2014 in the classification task while the winner is GoogLeNet. This tutorial [Introduction to VGGNet](https://becominghuman.ai/what-is-the-vgg-neural-network-a590caa72643) is a good source if you are interested in the detailed VGG architecture.
 
-https://becominghuman.ai/what-is-the-vgg-neural-network-a590caa72643
+<img src="images/VGG.png" width="300" height="350">
 
 ### 3.3 Emotion detection architecture
 <img src="images/ModelArch.png" width="550" height="400">
 
 <img src="images/Mid2Emotion.png" width="550" height="270">
+
 ### 3.4 Mid-level features
