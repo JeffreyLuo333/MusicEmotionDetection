@@ -19,7 +19,7 @@ This project is based on an AI-powered music emotion recognition research paper-
 
 ### 3.1 Music data preprocessing
 <img src="images/Spectogram.png" width="550" height="250">
-Spectrogram representation
+In terms of preprocessing, audio samples are initially transformed into 149-point spectrograms. These are derived from 10-second segments randomly chosen from the original audio. The samples are resampled at a frequency of 22.05 kHz, with each frame comprising 2048 samples and a frame rate set at 31.25 frames per second. Before creating the logarithmic-scaled spectrogram, the audio's amplitude is normalized. This process produces input vectors with dimensions of 313x149, which are then utilized as inputs for the subsequent model architectures.
 
 ### 3.2 Mid-level features
 <img src="images/Spectogram2Mid.png" width="750" height="250">
@@ -34,7 +34,11 @@ VGGNet is invented by Visual Geometry Group (by Oxford University). This archite
 <img src="images/VGG.png" width="300" height="350">
 
 ### 3.3 Emotion detection architecture
+The research explored three distinct methods for emotion modeling in audio, each utilizing VGG-style convolutional neural networks (CNNs). The specifics of these architectures are illustrated in the following figure. Across all models, an Adam optimizer with a learning rate set at 0.0005 and a batch size of 8 was employed. Additionally, to mitigate overfitting, early stopping was implemented, set to trigger after 50 epochs without improvement.
 <img src="images/ModelArch.png" width="550" height="400">
+
+
+<img src="images/VGG4All.png" width="550" height="270">
 
 <img src="images/Mid2Emotion.png" width="550" height="270">
 
