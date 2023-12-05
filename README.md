@@ -18,13 +18,22 @@ This section provides a detailed explanation of the AI model, and a step-by-step
 This project is based on an AI-powered music emotion recognition research paper--[Towards Explainable Music Emotion Recognition: The Route via Mid-level Features](https://arxiv.org/pdf/1907.03572) by S. Chowdhury et al. The model tries to give a musically meaningful and intuitive explanation for its music emotion predictions. A VGG-style deep neural network has been adopted to classify emotional characteristics of a musical piece together with (and based on) human-interpretable, mid-level perceptual features.
 
 ### 3.1 Music data preprocessing
-<img src="images/SpectogramSpectogram.png" width="550" height="250">
-spectrogram representation
+<img src="images/Spectogram.png" width="550" height="250">
+Spectrogram representation
 
 ### 3.2 Mid-level features
 <img src="images/Spectogram2Mid.png" width="750" height="250">
 
 Perceptual mid-level features as defined in [A datadriven approach to mid-level perceptual musical feature modeling](https://arxiv.org/pdf/1806.04903.pdf) by Anna Aljanaki and Mohammad Soleymani, along with questions that were provided to human raters to help them interpret the concepts. (The ratings were collected in a pairwise comparison scenario.)
+
 <img src="images/Mid.png" width="550" height="250">
 
+### 3.2 VGG-style neural network
+
 https://becominghuman.ai/what-is-the-vgg-neural-network-a590caa72643
+
+### 3.3 Emotion detection architecture
+<img src="images/ModelArch.png" width="550" height="400">
+
+<img src="images/Mid2Emotion.png" width="550" height="270">
+### 3.4 Mid-level features
