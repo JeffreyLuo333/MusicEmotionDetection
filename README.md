@@ -10,11 +10,15 @@ The "Song of Storms" production experience revealed the vital role of __`human-m
 - __Application__: Implement the trained model in emotion detection applications.
 
 ## 2. Project objective
-Excited by AI-powered emotion detection research, I studied an emotion classification algorithm based on a Visual Geometry Group (VGG)-style neural network. By using music's spectrogram representation as input, and training the VGG model to recognize human-interpretable, mid-level perceptual features (e.g., melodiousness, dissonance, and tonal stability, etc.) from the spectrogram, the algorithm can rate emotions by linearly combining the mid-level feature predictions. For instance, the rating of happy emotion=0.42xtonal_stability + 0.37xrhythm_complexity + 0.18xarticulation - 0.46xdissonance - 0.41xmodality - 0.16xrhythm_stability. 
+Excited by AI-powered emotion detection research, I studied an emotion classification algorithm based on a Visual Geometry Group (VGG)-style neural network. By using music's spectrogram representation as input, and training the VGG model to recognize human-interpretable, mid-level perceptual features (e.g., melodiousness, dissonance, and tonal stability, etc.) from the spectrogram, the algorithm can rate emotions by linearly combining the mid-level feature predictions. For instance, the rating of "happy emotion"=0.42x"tonal_stability" + 0.37x"rhythm_complexity" + 0.18x"articulation" - 0.46x"dissonance" - 0.41x"modality" - 0.16x"rhythm_stability". 
 
+## 3. Project details
+This section provides a detailed explanation of the AI model, and a step-by-step guide to applying the model for emotion detection.
 
+This project is based on an AI-powered music emotion recognition research paper--[Towards Explainable Music Emotion Recognition The Route via Mid-level features](https://arxiv.org/pdf/1907.03572) by S. Chowdhury et al. The model tries to give a musically meaningful and intuitive explanation for its music emotion predictions, a VGG-style deep neural network has been used to classify emotional characteristics of a musical piece together with (and based on) human-interpretable, mid-level perceptual features.
 
-
+### 3.1 Music data preprocessing
+Now you can proceed to the final
 
 My experimentation with various music has yielded close to 80% classification accuracy.
 
