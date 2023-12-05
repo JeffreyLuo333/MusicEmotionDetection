@@ -36,10 +36,16 @@ VGGNet is invented by Visual Geometry Group (by Oxford University). This archite
 ### 3.3 Emotion detection architecture
 The research explored three distinct methods for emotion modeling in audio, each utilizing VGG-style convolutional neural networks (CNNs). The specifics of these architectures are illustrated in the following figure. Across all models, an Adam optimizer with a learning rate set at 0.0005 and a batch size of 8 was employed. Additionally, to mitigate overfitting, early stopping was implemented, set to trigger after 50 epochs without improvement.
 
-<img src="images/ModelArch.png" width="550" height="400">
+<img src="images/VGG4All.png" width="300" height="500">
 
+“A2E", is the most straightforward one. The spectrograms are fed into a VGG-style CNN to directly predict emotion values from audio. This is the leftmost path in the above figure. 
 
-<img src="images/VGG4All.png" width="270" height="550">
+In order to obtain a more interpretable model, “A2Mid2E" (the middle path) is introduced. First, a VGG-style network is used to predict mid-level features from audio. Next, a linear regression model is trained to predict the 8 emotion ratings from the 7 mid-level feature values that we get as an output from the mid-level predictor network. This corresponds to a fully connected layer with 7 input units and 8 outputs. 
+
+“A2Mid2E-Joint" (rightmost path) learns to predict mid-level features and emotion ratings jointly, but still predicts the emotions directly from the mid-level via a linear layer. From this network, two outputs are extracted – one from
+the second last layer ("mid-level layer"), and one from the last layer ("emotion layer"). Losses are computed for both the outputs and the combined loss (summation of both the losses) is optimized.
+
+The following figure illustrate the key concept of mapping mid-level features to emotions. For instance, the rating of "happy emotion"=0.42x"tonal_stability" + 0.37x"rhythm_complexity" + 0.18x"articulation" - 0.46x"dissonance" - 0.41x"modality" - 0.16x"rhythm_stability".
 
 <img src="images/Mid2Emotion.png" width="550" height="270">
 
