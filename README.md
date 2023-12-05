@@ -49,6 +49,6 @@ The following figure illustrates the key concept of mapping mid-level features t
 ### 3.4 Mid-level features to emotion score mapping results
 The paper compares the three model architectures (A2E, A2Mid2E, A2Mid2E-Joint) on the full task of predicting emotion from audio. The A2E model serves as reference for the subsequent models with explainable linear layers. The results can be found in the table below.
 
-<img src="images/MappingScoreMappingScore.png" width="650" height="170">
+<img src="images/MappingScore.png" width="650" height="130">
 
 The key conclusion is A2Mid2E-Joint come very close to the reference model of A2E, with just 0.01 drop in accuracy. Hence I have decided to choose A2Mid2E-Joint for my experimentation.
