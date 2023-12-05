@@ -35,10 +35,11 @@ VGGNet is invented by Visual Geometry Group (by Oxford University). This archite
 
 ### 3.3 Emotion detection architecture
 The research explored three distinct methods for emotion modeling in audio, each utilizing VGG-style convolutional neural networks (CNNs). The specifics of these architectures are illustrated in the following figure. Across all models, an Adam optimizer with a learning rate set at 0.0005 and a batch size of 8 was employed. Additionally, to mitigate overfitting, early stopping was implemented, set to trigger after 50 epochs without improvement.
+
 <img src="images/ModelArch.png" width="550" height="400">
 
 
-<img src="images/VGG4All.png" width="550" height="270">
+<img src="images/VGG4All.png" width="270" height="550">
 
 <img src="images/Mid2Emotion.png" width="550" height="270">
 
