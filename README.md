@@ -29,7 +29,7 @@ Perceptual mid-level features is defined in [A datadriven approach to mid-level 
 <img src="images/Mid.png" width="550" height="250">
 
 ### 3.2 VGG-style neural network
-VGGNet is invented by Visual Geometry Group (by Oxford University). This architecture is the 1st runner up of ILSVR2014 in the classification task while the winner is GoogLeNet. This tutorial [Introduction to VGGNet](https://becominghuman.ai/what-is-the-vgg-neural-network-a590caa72643) is a good source if you are interested in the detailed VGG architecture.
+VGGNet is invented by Visual Geometry Group (by Oxford University). This architecture was the 1st runner up of ILSVR2014 in the classification task while the winner is GoogLeNet. This tutorial [Introduction to VGGNet](https://becominghuman.ai/what-is-the-vgg-neural-network-a590caa72643) is a good source if you are interested in the detailed VGG architecture.
 
 <img src="images/VGG.png" width="300" height="350">
 
