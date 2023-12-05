@@ -1,5 +1,5 @@
 # Music Emotion Detection with Human-Interpretable Mid-Level Features
-<img src="images/Arch.jpg" width="750" height="250"> <img src="images/DDSP-VST.jpg" width="750" height="250"> 
+<img src="images/Arch.png" width="750" height="250">
 
 ## 1. Project context
 The "Song of Storms" production experience revealed the vital role of human-machine synergy in crafting humane audience experiences. Real-time synchronization of machines' sounds with musicians' dynamic emotions is crucial yet presents challenges with the traditional static rule-based signal processing. 
