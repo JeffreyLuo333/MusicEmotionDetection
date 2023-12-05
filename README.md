@@ -51,4 +51,4 @@ The paper compares the three model architectures (A2E, A2Mid2E, A2Mid2E-Joint) o
 
 <img src="images/MappingScore.png" width="650" height="130">
 
-The key conclusion is A2Mid2E-Joint come very close to the reference model of A2E, with just 0.01 drop in accuracy. Hence I have decided to choose A2Mid2E-Joint for my experimentation.
+The key conclusion is A2Mid2E-Joint comes very close to the reference model of A2E, with just 0.01 drop in accuracy. Hence I have decided to choose A2Mid2E-Joint for my experimentations.
