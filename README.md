@@ -49,7 +49,7 @@ __For example, an excess of dissonance in a musical composition tends to result 
 <img src="images/Mid2Emotion.png" width="550" height="270">
 
 ### 3.4 Mid-level features to emotion score mapping results
-The paper compares the three model architectures (A2E, A2Mid2E, A2Mid2E-Joint) on the full task of predicting emotion from audio. The A2E model serves as reference for the subsequent models with explainable linear layers. The results can be found in the table below.
+The paper compares the three model architectures (A2E, A2Mid2E, A2Mid2E-Joint) on the full task of classifying emotion from audio. The A2E model serves as reference for the subsequent models with explainable linear layers. The classification accuracy results can be found in the table below.
 
 <img src="images/MappingScore.png" width="650" height="130">
 
