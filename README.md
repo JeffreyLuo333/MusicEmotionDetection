@@ -44,6 +44,8 @@ The research explored three distinct methods for emotion modeling in audio, each
 
 The following figure illustrates the key concept of mapping mid-level features to emotions (happy, sad, tender, fearful, angry, valence, energy, tension). For instance, the rating of "happy emotion"=0.42x"tonal_stability" + 0.37x"rhythm_complexity" + 0.18x"articulation" - 0.46x"dissonance" - 0.41x"modality" - 0.16x"rhythm_stability". With this mapping, explainability is achieved because one can relate the emotion score to the 7 human-interpretable mid-level features.
 
+_For example, an excess of dissonance in a musical composition tends to result in a low happiness score, which is logically consistent._
+
 <img src="images/Mid2Emotion.png" width="550" height="270">
 
 ### 3.4 Mid-level features to emotion score mapping results
@@ -51,4 +53,4 @@ The paper compares the three model architectures (A2E, A2Mid2E, A2Mid2E-Joint) o
 
 <img src="images/MappingScore.png" width="650" height="130">
 
-The key conclusion is A2Mid2E-Joint comes very close to the reference model of A2E, with just 0.01 drop in accuracy. Hence I have decided to choose A2Mid2E-Joint for my experimentations.
+The key conclusion is A2Mid2E-Joint comes very close to the reference model of A2E, with just 0.01 drop in accuracy in exchange for explainability. Hence I have decided to choose both A2E and A2Mid2E-Joint for my experimentations.
