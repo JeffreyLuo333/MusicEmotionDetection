@@ -59,7 +59,9 @@ The key conclusion is A2Mid2E-Joint comes very close to the reference model of A
 For the datasets, we utilized Aljanaki & Soleymani's [Mid-level Perceptual Features dataset](https://osf.io/5aupt/) for mid-level feature annotations. For the emotion prediction experiments, the [Music and emotion stimulus dataset](https://osf.io/p6vkg/) was employed. This dataset includes a collection of music and participants ratings of emotions for a selected short clips of film soundtracks that have been used to study emotion recognition and induction in music ([A comparison of the discrete and dimensional models of emotion in music. Psychology of Music, 39(1), 18-49](https://doi.org/10.1177/0305735610362821), Eerola and Vuoskoski, 2011).
 
 ### 3.6 Training
-To be updated soon with Python codes.
+The orginal [Github source codes](https://github.com/Jarvis1000x/Music_Emotion_Recognition) released together with the research paper are broken. I revised the codes, based on the AI knowledge I've learned from Inspirit AI's online courses, particularly focusing on CNN, which is the fundamental architecture in VGG.
+
+To be updated in mid December with Python codes.
 
 ### 3.5 Inference experiments
-To be updated soon with Python codes & results showing nearly 80% accuracy across various music pieces.
+To be updated in mid December with Python codes & results showing nearly 80% accuracy across various music pieces.
