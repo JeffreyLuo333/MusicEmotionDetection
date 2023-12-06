@@ -61,5 +61,5 @@ For the datasets, we utilized Aljanaki & Soleymani's [Mid-level Perceptual Featu
 ### 3.6 Training
 To be updated soon with Python codes.
 
-### 3.5 Experiments
-To be updated soon with results showing nearly 80% accuracy across various music pieces.
+### 3.5 Inference experiments
+To be updated soon with Python codes & results showing nearly 80% accuracy across various music pieces.
