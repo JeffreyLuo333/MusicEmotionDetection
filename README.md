@@ -44,7 +44,7 @@ The research explored three distinct methods for emotion modeling in audio, each
 
 The following figure illustrates the key concept of mapping mid-level features to emotions (happy, sad, tender, fearful, angry, valence, energy, tension). For instance, the rating of "emotion of happiness"=0.42x"tonal_stability" + 0.37x"rhythm_complexity" + 0.18x"articulation" - 0.46x"dissonance" - 0.41x"modality" - 0.16x"rhythm_stability". With this mapping, explainability is achieved because one can relate the emotion score to the 7 human-interpretable mid-level features.
 
-__For example, an excess of dissonance in a musical composition tends to result in a low happiness score, which is logically consistent.__
+__For example, an excess of dissonance in a musical composition tends to result in a low happiness score, which is __`logically consistent`__.__
 
 <img src="images/Mid2Emotion.png" width="550" height="270">
 
