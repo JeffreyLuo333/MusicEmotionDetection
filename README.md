@@ -38,13 +38,13 @@ The research explored three distinct methods for emotion modeling in audio, each
 
 <img src="images/VGG4All.png" width="300" height="500">
 
-- _"A2E"_: The simplest approach, where spectrograms are directly fed into a VGG-style CNN to predict emotion values from audio. This is depicted as the leftmost path in the figure.
-- _"A2Mid2E"_: Aimed at achieving a more interpretable model, this middle path uses a VGG-style network to first predict mid-level features from audio, followed by a linear regression model that predicts 8 emotion ratings from 7 mid-level feature values. This corresponds to a fully connected layer with 7 inputs and 8 outputs.
-- _"A2Mid2E-Joint"_: The rightmost path in the figure, this model jointly learns to predict mid-level features and emotion ratings. It predicts emotions directly from the mid-level features through a linear layer. The network yields two outputs: one from the penultimate "mid-level layer" and another from the final "emotion layer." Both outputs' losses are calculated, and the combined loss (their summation) is optimized.
+- __"A2E"__: The simplest approach, where spectrograms are directly fed into a VGG-style CNN to predict emotion values from audio. This is depicted as the leftmost path in the figure.
+- __"A2Mid2E"__: Aimed at achieving a more interpretable model, this middle path uses a VGG-style network to first predict mid-level features from audio, followed by a linear regression model that predicts 8 emotion ratings from 7 mid-level feature values. This corresponds to a fully connected layer with 7 inputs and 8 outputs.
+- __"A2Mid2E-Joint"__: The rightmost path in the figure, this model jointly learns to predict mid-level features and emotion ratings. It predicts emotions directly from the mid-level features through a linear layer. The network yields two outputs: one from the penultimate "mid-level layer" and another from the final "emotion layer." Both outputs' losses are calculated, and the combined loss (their summation) is optimized.
 
 The following figure illustrates the key concept of mapping mid-level features to emotions (happy, sad, tender, fearful, angry, valence, energy, tension). For instance, the rating of "happy emotion"=0.42x"tonal_stability" + 0.37x"rhythm_complexity" + 0.18x"articulation" - 0.46x"dissonance" - 0.41x"modality" - 0.16x"rhythm_stability". With this mapping, explainability is achieved because one can relate the emotion score to the 7 human-interpretable mid-level features.
 
-_For example, an excess of dissonance in a musical composition tends to result in a low happiness score, which is logically consistent._
+__For example, an excess of dissonance in a musical composition tends to result in a low happiness score, which is logically consistent.__
 
 <img src="images/Mid2Emotion.png" width="550" height="270">
 
