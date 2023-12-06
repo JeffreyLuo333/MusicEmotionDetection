@@ -29,7 +29,7 @@ Perceptual mid-level features is defined in [A datadriven approach to mid-level 
 <img src="images/Mid.png" width="550" height="250">
 
 ### 3.2 VGG-style neural network
-VGGNet is invented by Visual Geometry Group (by Oxford University). This architecture was the 1st runner up of ILSVR2014 in the classification task while the winner is GoogLeNet. This tutorial [Introduction to VGGNet](https://becominghuman.ai/what-is-the-vgg-neural-network-a590caa72643) is a good source if you are interested in the detailed VGG architecture.
+VGGNet was invented by Visual Geometry Group (by Oxford University). This architecture was the 1st runner up of ILSVR2014 in the classification task while the winner is GoogLeNet. This tutorial [Introduction to VGGNet](https://becominghuman.ai/what-is-the-vgg-neural-network-a590caa72643) is a good source if you are interested in the detailed VGG architecture.
 
 <img src="images/VGG.png" width="300" height="350">
 
@@ -42,7 +42,7 @@ The research explored three distinct methods for emotion modeling in audio, each
 - __"A2Mid2E"__: Aimed at achieving a more interpretable model, this middle path uses a VGG-style network to first predict mid-level features from audio, followed by a linear regression model that predicts 8 emotion ratings from 7 mid-level feature values. This corresponds to a fully connected layer with 7 inputs and 8 outputs.
 - __"A2Mid2E-Joint"__: The rightmost path in the figure, this model jointly learns to predict mid-level features and emotion ratings. It predicts emotions directly from the mid-level features through a linear layer. The network yields two outputs: one from the penultimate "mid-level layer" and another from the final "emotion layer." Both outputs' losses are calculated, and the combined loss (their summation) is optimized.
 
-The following figure illustrates the key concept of mapping mid-level features to emotions (happy, sad, tender, fearful, angry, valence, energy, tension). For instance, the rating of "happy emotion"=0.42x"tonal_stability" + 0.37x"rhythm_complexity" + 0.18x"articulation" - 0.46x"dissonance" - 0.41x"modality" - 0.16x"rhythm_stability". With this mapping, explainability is achieved because one can relate the emotion score to the 7 human-interpretable mid-level features.
+The following figure illustrates the key concept of mapping mid-level features to emotions (happy, sad, tender, fearful, angry, valence, energy, tension). For instance, the rating of "emotion of happiness"=0.42x"tonal_stability" + 0.37x"rhythm_complexity" + 0.18x"articulation" - 0.46x"dissonance" - 0.41x"modality" - 0.16x"rhythm_stability". With this mapping, explainability is achieved because one can relate the emotion score to the 7 human-interpretable mid-level features.
 
 __For example, an excess of dissonance in a musical composition tends to result in a low happiness score, which is logically consistent.__
 
@@ -54,3 +54,6 @@ The paper compares the three model architectures (A2E, A2Mid2E, A2Mid2E-Joint) o
 <img src="images/MappingScore.png" width="650" height="130">
 
 The key conclusion is A2Mid2E-Joint comes very close to the reference model of A2E, with just 0.01 drop in accuracy in exchange for explainability. Hence I have decided to choose both A2E and A2Mid2E-Joint for my experimentations.
+
+### 3.5 Datasets used
+For the datasets, we utilized Aljanaki & Soleymani's [Mid-level Perceptual Features dataset](https://osf.io/5aupt/) for mid-level feature annotations. For the emotion prediction experiments, the [Music and emotion stimulus dataset](https://osf.io/p6vkg/) was employed. This dataset includes a collection of music and participants ratings of emotions for a selected short clips of film soundtracks that have been used to study emotion recognition and induction in music ([A comparison of the discrete and dimensional models of emotion in music. Psychology of Music, 39(1), 18-49](https://doi.org/10.1177/0305735610362821).Eerola and Vuoskoski, 2011).
