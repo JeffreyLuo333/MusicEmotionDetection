@@ -55,13 +55,142 @@ The paper compares the three model architectures (A2E, A2Mid2E, A2Mid2E-Joint) o
 
 The key conclusion is A2Mid2E-Joint comes very close to the reference model of A2E, with just 0.01 drop in accuracy in exchange for explainability. Hence I have decided to choose both A2E and A2Mid2E-Joint for my experimentations.
 
-### 3.5 Datasets used
+## 4. My implementation and experimentation
+### 4.1 Datasets used
 For the datasets, we utilized Aljanaki & Soleymani's [Mid-level Perceptual Features dataset](https://osf.io/5aupt/) for mid-level feature annotations. For the emotion prediction experiments, the [Music and emotion stimulus dataset](https://osf.io/p6vkg/) was employed. This dataset includes a collection of music and participants ratings of emotions for a selected short clips of film soundtracks that have been used to study emotion recognition and induction in music ([A comparison of the discrete and dimensional models of emotion in music. Psychology of Music, 39(1), 18-49](https://doi.org/10.1177/0305735610362821), Eerola and Vuoskoski, 2011).
 
-### 3.6 Training
+### 4.2 Model Summary
 The orginal [Github source codes](https://github.com/Jarvis1000x/Music_Emotion_Recognition) released together with the research paper are broken. I've rewriten the codes, based on the AI knowledge I've learned from Inspirit AI's online courses, particularly focusing on CNN, which is the fundamental architecture in VGG.
 
-To be updated in mid December with Python codes.
+```
+Model: "sequential_2"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d_27 (Conv2D)          (None, 155, 73, 64)       1664      
+                                                                 
+ batch_normalization_27 (Ba  (None, 155, 73, 64)       256       
+ tchNormalization)                                               
+                                                                 
+ conv2d_28 (Conv2D)          (None, 155, 73, 64)       36928     
+                                                                 
+ batch_normalization_28 (Ba  (None, 155, 73, 64)       256       
+ tchNormalization)                                               
+                                                                 
+ max_pooling2d_6 (MaxPoolin  (None, 77, 36, 64)        0         
+ g2D)                                                            
+                                                                 
+ dropout_6 (Dropout)         (None, 77, 36, 64)        0         
+                                                                 
+ conv2d_29 (Conv2D)          (None, 77, 36, 128)       73856     
+                                                                 
+ batch_normalization_29 (Ba  (None, 77, 36, 128)       512       
+ tchNormalization)                                               
+                                                                 
+ conv2d_30 (Conv2D)          (None, 77, 36, 128)       147584    
+                                                                 
+ batch_normalization_30 (Ba  (None, 77, 36, 128)       512       
+ tchNormalization)                                               
+                                                                 
+ max_pooling2d_7 (MaxPoolin  (None, 38, 18, 128)       0         
+ g2D)                                                            
+                                                                 
+ dropout_7 (Dropout)         (None, 38, 18, 128)       0         
+                                                                 
+ conv2d_31 (Conv2D)          (None, 38, 18, 256)       295168    
+                                                                 
+ batch_normalization_31 (Ba  (None, 38, 18, 256)       1024      
+ tchNormalization)                                               
+                                                                 
+ conv2d_32 (Conv2D)          (None, 38, 18, 256)       590080    
+                                                                 
+ batch_normalization_32 (Ba  (None, 38, 18, 256)       1024      
+ tchNormalization)                                               
+                                                                 
+ conv2d_33 (Conv2D)          (None, 38, 18, 384)       885120    
+                                                                 
+ batch_normalization_33 (Ba  (None, 38, 18, 384)       1536      
+ tchNormalization)                                               
+                                                                 
+ conv2d_34 (Conv2D)          (None, 38, 18, 512)       1769984   
+                                                                 
+ batch_normalization_34 (Ba  (None, 38, 18, 512)       2048      
+ tchNormalization)                                               
+                                                                 
+ conv2d_35 (Conv2D)          (None, 38, 18, 256)       1179904   
+                                                                 
+ batch_normalization_35 (Ba  (None, 38, 18, 256)       1024      
+ tchNormalization)                                               
+                                                                 
+ adaptive_average_pooling2d  (None, 1, 1, 256)         0         
+  (AdaptiveAveragePooling2D                                      
+ )                                                               
+                                                                 
+ dense_4 (Dense)             (None, 1, 1, 256)         65792     
+                                                                 
+ dense_5 (Dense)             (None, 1, 1, 8)           2056      
+                                                                 
+=================================================================
+``` 
+### 4.3 Setup
+Environment requirements:
+- pytorch: install pytorch following instruction@https://pytorch.org/get-started/locally/
+- other python package: numpy, pandas, tqdm, librosa
 
-### 3.5 Inference experiments
-To be updated in mid December with Python codes & results showing nearly 80% accuracy across various music pieces.
+### 4.4 File Structure
+```bash
+.
+├── data                    # data folder
+├── datasets.py             # data class and dataloader class
+├── demo.py                 # inference code    
+├── model.py                # original model in keras, NO WORKING
+├── model_torch.py          # model in torch
+├── __pycache__
+├── README.md               # this readme   
+├── sound_preprocess.py     # preprocess script, audio -> spectrograms
+├── train_log               # folder to save train log
+├── train.py                # training script
+└── weights                 # folder to save weights during training
+```
+
+### 4.5 Step-by-step instructions for training and inference
+1. **Preprocess data**:
+    Put all audio files in `data/audio` and create an output folder `data/spectrograms/` , then run python script `sound_preprocess`:
+    ```bash
+    python sound_preprocess.py
+    ```
+2. **Train model**:
+    Once data pre-process is finished, you can start training by run
+    ```bash
+    python train.py
+    ```
+    To change dataset setting, make change in `datasets.py - build_default_dataloader` function. To change training setting, make change in `train.py - train` function
+
+3. **inference**:
+    You can change the `sound_preprocess.py` to preprocess your data in different folder, change below and rerun the step 1.
+    ```python
+    SPECTROGRAM_SAVE_DIR = "data/spectrograms/"
+    FILES_DIR = "data/audio/"
+    ```
+    Once spectrograms is ready, you can run `demo.py` get the prediction, change the following setup to use your own model and spectrograms file
+    ```python
+    # model path
+    checkpoint_path = 'weights/best.pth'
+    # test audio spectrograms path
+    audio_spectrograms_path = 'data/spectrograms/001.mp3.npy'
+    ```
+
+### 4.6 Results
+Example inference results for music 001:
+```
+            valence  energy   tension  anger  fear  happy  sad  tender
+predicted  6.495434    7.83  1.593537    1.0   1.0   7.83  1.0     1.0
+annotated  4.83        6.83     3.17    1.0    1.0   7.33  1.0     1.0
+```
+
+### 4.7 Training log:
+
+Train loss (loss/global step):
+![img](./train_log/train_loss.png)
+Validation loss (loss/epochs):
+![img](./train_log/val_loss.png)
