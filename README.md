@@ -60,7 +60,7 @@ The key conclusion is A2Mid2E-Joint comes very close to the reference model of A
 For the datasets, we utilized Aljanaki & Soleymani's [Mid-level Perceptual Features dataset](https://osf.io/5aupt/) for mid-level feature annotations. For the emotion prediction experiments, the [Music and emotion stimulus dataset](https://osf.io/p6vkg/) was employed. This dataset includes a collection of music and participants ratings of emotions for a selected short clips of film soundtracks that have been used to study emotion recognition and induction in music ([A comparison of the discrete and dimensional models of emotion in music. Psychology of Music, 39(1), 18-49](https://doi.org/10.1177/0305735610362821), Eerola and Vuoskoski, 2011).
 
 ### 4.2 Model Summary
-The orginal [Github source codes](https://github.com/Jarvis1000x/Music_Emotion_Recognition) released together with the research paper are broken. I've rewriten the codes, based on the AI knowledge I've learned from Inspirit AI's online courses, particularly focusing on CNN, which is the fundamental architecture in VGG.
+The orginal [Github source codes](https://github.com/Jarvis1000x/Music_Emotion_Recognition) released together with the research paper are broken. I've rewriten the codes, based on the algorithm described in the research paper and the AI courses I've taken from Inspirit AI camp, particularly focusing on CNN, which is the fundamental architecture in VGG.
 
 ```
 Model: "sequential_2"
@@ -134,7 +134,7 @@ _________________________________________________________________
 ``` 
 ### 4.3 Setup
 Environment requirements:
-- pytorch: install pytorch following instruction@https://pytorch.org/get-started/locally/
+- pytorch: install pytorch, following instruction@https://pytorch.org/get-started/locally/
 - other python package: numpy, pandas, tqdm, librosa
 
 ### 4.4 File Structure
@@ -143,44 +143,43 @@ Environment requirements:
 ├── data                    # data folder
 ├── datasets.py             # data class and dataloader class
 ├── demo.py                 # inference code    
-├── model.py                # original model in keras, NO WORKING
-├── model_torch.py          # model in torch
-├── __pycache__
-├── README.md               # this readme   
+├── model.py                # original model in keras, BROKEN/NOT WORKING
+├── model_torch.py          # model re-written in torch
+├── __pycache__   
 ├── sound_preprocess.py     # preprocess script, audio -> spectrograms
 ├── train_log               # folder to save train log
-├── train.py                # training script
+├── train.py                # model training script
 └── weights                 # folder to save weights during training
 ```
 
 ### 4.5 Step-by-step instructions for training and inference
 1. **Preprocess data**:
-    Put all audio files in `data/audio` and create an output folder `data/spectrograms/` , then run python script `sound_preprocess`:
+    Put all audio files in `data/audio` and create an output folder `data/spectrograms/` , then run the python script `sound_preprocess`:
     ```bash
     python sound_preprocess.py
     ```
 2. **Train model**:
-    Once data pre-process is finished, you can start training by run
+    Once data pre-process is completed, you can start the training by running
     ```bash
     python train.py
     ```
     To change dataset setting, make change in `datasets.py - build_default_dataloader` function. To change training setting, make change in `train.py - train` function
 
-3. **inference**:
-    You can change the `sound_preprocess.py` to preprocess your data in different folder, change below and rerun the step 1.
+3. **Inference**:
+    You can change the `sound_preprocess.py` to preprocess your data in different folders, change the code section below and rerun step 1.
     ```python
     SPECTROGRAM_SAVE_DIR = "data/spectrograms/"
     FILES_DIR = "data/audio/"
     ```
-    Once spectrograms is ready, you can run `demo.py` get the prediction, change the following setup to use your own model and spectrograms file
+    Once spectrograms are ready, you can run `demo.py` to obtain the classification; change the following setup to use your own model (weights) and spectrograms file
     ```python
     # model path
     checkpoint_path = 'weights/best.pth'
-    # test audio spectrograms path
+    # target audio spectrograms path
     audio_spectrograms_path = 'data/spectrograms/001.mp3.npy'
     ```
 
-### 4.6 Results
+### 4.6 Inference results
 Example inference results for music 001:
 ```
             valence  energy   tension  anger  fear  happy  sad  tender
