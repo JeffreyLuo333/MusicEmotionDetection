@@ -187,9 +187,11 @@ predicted  6.495434    7.83  1.593537    1.0   1.0   7.83  1.0     1.0
 annotated  4.83        6.83     3.17    1.0    1.0   7.33  1.0     1.0
 ```
 
-### 4.7 Training log:
+### 4.7 Training log
 
 Train loss (loss/global step):
 ![img](./train_log/train_loss.png)
 Validation loss (loss/epochs):
 ![img](./train_log/val_loss.png)
+
+Best of luck! Should you run into any issues, please feel free to contact me at jeffrey.luo333@gmail.com.
