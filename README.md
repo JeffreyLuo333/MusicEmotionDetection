@@ -137,7 +137,7 @@ Environment requirements:
 - pytorch: install pytorch, following instruction@https://pytorch.org/get-started/locally/
 - other python package: numpy, pandas, tqdm, librosa
 
-### 4.4 File Structure
+### 4.4 File structure
 ```bash
 .
 ├── data                    # data folder
